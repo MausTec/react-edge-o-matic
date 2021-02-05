@@ -244,7 +244,7 @@ class DeviceProvider extends Component {
         wsLog.shift()
       }
 
-      this.setDeviceState({ wsLog: [wsLog, { recv: data }] })
+      this.setDeviceState({ wsLog: [...wsLog, { recv: data }] })
     }
 
     Object.keys(doc).forEach((cmd) => {

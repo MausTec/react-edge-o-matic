@@ -12,17 +12,35 @@ npm install --save react-edge-o-matic
 
 ## Usage
 
+This exposes device state via the new React Context API. See the `example/`
+directory for a project that can connect to the device and print state.
+
+More docs forthcoming.
+
 ```jsx
-import React, { Component } from 'react'
+import React, { useState } from 'react'
+import DeviceProvider from 'react-edge-o-matic'
+import { DeviceContext } from 'react-edge-o-matic'
 
-import MyComponent from 'react-edge-o-matic'
-import 'react-edge-o-matic/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const renderDeviceState = (state) => {
+  return (
+    <div className={'card'}>
+      <pre>
+        <code>{ JSON.stringify(state, undefined, 2) }</code>
+      </pre>
+    </div>
+  )
 }
+
+const App = () => {
+  return <DeviceProvider>
+    <DeviceContext.Consumer>
+      { renderDeviceState }
+    </DeviceContext.Consumer>
+  </DeviceProvider>
+}
+
+export default App
 ```
 
 ## License
