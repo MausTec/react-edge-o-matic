@@ -16,8 +16,6 @@ const defaultState = {
   ip: null,
   state: ConnectionState.DISCONNECTED,
   config: {},
-  readings: [],
-  lastReading: {},
   mode: '',
   modeDisplay: '',
   info: {
@@ -235,8 +233,6 @@ class DeviceProvider extends Component {
       console.warn(e)
     }
 
-    if (!doc.readings) console.debug('handleWsMessage', doc, data)
-
     if (!doc.readings) {
       const wsLog = [...this.state.deviceContext.wsLog]
 
@@ -258,6 +254,7 @@ class DeviceProvider extends Component {
         }
 
         if (data.error) {
+          console.error(data.error)
           // TODO: Pass along error here
         }
       }

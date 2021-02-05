@@ -15,6 +15,9 @@ npm install --save react-edge-o-matic
 This exposes device state via the new React Context API. See the `example/`
 directory for a project that can connect to the device and print state.
 
+Two providers are exported, `DeviceProvider` handles device connection, config
+and commands. `ReadingsProvider` streams reading data from the device.
+
 More docs forthcoming.
 
 ```jsx
