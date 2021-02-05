@@ -49,5 +49,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "react-websocket": "^2.1.0"
+  }
 }
